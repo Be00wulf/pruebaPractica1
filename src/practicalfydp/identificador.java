@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class identificador {
     ArrayList<TokenXtoken> listaTokens = new ArrayList();
     
-    public identificador(ArrayList<TokenXtoken> listaToken){
-        this.listaTokens = listaToken;
+    public identificador(ArrayList<TokenXtoken> listaTokens){
+        this.listaTokens = listaTokens;
     }
     
     
@@ -58,7 +58,11 @@ public class identificador {
                     case 100:
                         est = -2;
                         
-                        
+                    case 999:   
+                        estructura = String.valueOf(lineas[i].charAt(j));   //char a string
+                        tokenNum = 999; 
+                        tipo = "     ERROR     ";
+                        est = 0;
                 }
                 if (est == 0) {
                     listaTokens.add(new TokenXtoken(estructura, tokenNum, i+1, j+1, tipo));

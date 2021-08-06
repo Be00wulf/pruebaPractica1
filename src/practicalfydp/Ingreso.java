@@ -77,7 +77,7 @@ public class Ingreso extends javax.swing.JFrame {
     private void botonidentificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonidentificarActionPerformed
         // BOTONCITO IDENTIFICADOR 
         String entrada = this.ingresotexto.getText();     //almacenar el texto
-        
+        new identificador(listaTokens).analizar(ingresotexto.getText());
         
         
     }//GEN-LAST:event_botonidentificarActionPerformed
