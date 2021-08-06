@@ -1,8 +1,12 @@
 package practicalfydp;
 
+import java.util.ArrayList;
+
 public class Ingreso extends javax.swing.JFrame {
 
-    public Ingreso() {
+    private ArrayList<TokenXtoken> listaTokens;
+
+    public Ingreso() { 
         initComponents();
     }
 
@@ -76,10 +80,12 @@ public class Ingreso extends javax.swing.JFrame {
 
     private void botonidentificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonidentificarActionPerformed
         // BOTONCITO IDENTIFICADOR 
-        String entrada = this.ingresotexto.getText();     //almacenar el texto
+        //String entrada = this.ingresotexto.getText();     //almacenar el texto
         new identificador(listaTokens).analizar(ingresotexto.getText());
         
-        
+        for (int i = 0; i < listaTokens.size(); i++) {
+            identificador.setText(identificador.getText() + "\n" + listaTokens.get(i).toString());
+        }
     }//GEN-LAST:event_botonidentificarActionPerformed
 
     /**

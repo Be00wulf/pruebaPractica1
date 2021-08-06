@@ -1,7 +1,7 @@
 package practicalfydp;
 
 import java.util.ArrayList;
-
+ 
 public class identificador {
     ArrayList<TokenXtoken> listaTokens = new ArrayList();
     
@@ -43,7 +43,8 @@ public class identificador {
                             tipo = "     IDENTIFICADOR     ";
                             est = 0;
                         }
-                        
+                    break;
+                    
                     case 2:
                         estructura += lineas[i].charAt(j);
                         if (siguiente > 47 && siguiente < 58) {     //numeros
@@ -54,15 +55,18 @@ public class identificador {
                             tipo = "     NUMERO ENTERO    ";
                             est = 0;
                         }
-                        
+                    break;
+                    
                     case 100:
                         est = -2;
+                        break;
                         
                     case 999:   
                         estructura = String.valueOf(lineas[i].charAt(j));   //char a string
                         tokenNum = 999; 
                         tipo = "     ERROR     ";
                         est = 0;
+                        break;
                 }
                 if (est == 0) {
                     listaTokens.add(new TokenXtoken(estructura, tokenNum, i+1, j+1, tipo));
