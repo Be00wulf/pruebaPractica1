@@ -1,6 +1,14 @@
 package practicalfydp;
 
+import java.util.ArrayList;
+
 public class identificador {
+    ArrayList<TokenXtoken> listaTokens = new ArrayList();
+    
+    public identificador(ArrayList<TokenXtoken> listaToken){
+        this.listaTokens = listaToken;
+    }
+    
     
     //leer la cadena
     public void analizar(String cadena){
@@ -32,10 +40,34 @@ public class identificador {
                         }
                         else {
                             tokenNum = 1;
-                            tipo = "     CADENA     ";
+                            tipo = "     IDENTIFICADOR     ";
                             est = 0;
                         }
                         
+                    case 2:
+                        estructura += lineas[i].charAt(j);
+                        if (siguiente > 47 && siguiente < 58) {     //numeros
+                            est = 2;
+                        }
+                        else {
+                            tokenNum = 2;
+                            tipo = "     NUMERO ENTERO    ";
+                            est = 0;
+                        }
+                        
+                    case 100:
+                        est = -2;
+                        
+                        
+                }
+                if (est == 0) {
+                    listaTokens.add(new TokenXtoken(estructura, tokenNum, i+1, j+1, tipo));
+                    estructura = "";
+                    tipo = "";
+                }
+                
+                if (est == -2) {
+                    est = 0; 
                 }
             }
         }
@@ -47,8 +79,17 @@ public class identificador {
         //mayusculas ASCII 65-90
         if ((numero >= 97 && numero <= 122) || (numero >= 65 && numero <= 90)) {
             return 1;
+        }   else if (numero > 47 && numero < 58) {      //numeros ascii
+            return 2;
+            
         }
-        return 0;
+        else if (numero == 32 || numero == 13 || numero == 9) {        //32 => espacio ascii       13=>enter    9-> tab
+            return 100;
+        }
+        else {
+            return 999;
+        }
+        
     }
     
     //separar cadena`x

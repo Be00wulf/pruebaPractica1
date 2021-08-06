@@ -4,6 +4,7 @@ public class TokenXtoken {
 //variables    
     private String palabra;
     private int tNumerico, fila, columna;
+    private String tipo;
     
 //constructor1
     public TokenXtoken() {
@@ -11,11 +12,12 @@ public class TokenXtoken {
     }
     
 //constructor2
-    public TokenXtoken(String palabra, int tNumerico, int fila, int columna) {
+    public TokenXtoken(String palabra, int tNumerico, int fila, int columna, String tipo) {
         this.palabra = palabra;
         this.tNumerico = tNumerico;
         this.fila = fila;
         this.columna = columna;
+        this.tipo = tipo;
     }
     
 //get set
@@ -50,5 +52,22 @@ public class TokenXtoken {
     public void setColumna(int columna) {
         this.columna = columna;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "TokenXtoken{" + "palabra=" + palabra + ", tNumerico=" + tNumerico + ", fila=" + fila + ", columna=" + columna + ", tipo=" + tipo + '}';
+    }
+    
+    
+    
+    
     
 }//fin clase
