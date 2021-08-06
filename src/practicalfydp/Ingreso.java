@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Ingreso extends javax.swing.JFrame {
 
-    private ArrayList<TokenXtoken> listaTokens;
+    ArrayList<TokenXtoken> listaTokens = new ArrayList();
 
     public Ingreso() { 
         initComponents();

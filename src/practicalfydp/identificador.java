@@ -12,7 +12,7 @@ public class identificador {
     
     //leer la cadena
     public void analizar(String cadena){
-        int est = 0, decimal = 0, tokenNum = 0;
+        int est = 0, decimal = 0, tNumerico = 0;
         String estructura = "", tipo = "";
         String[] lineas = separador(cadena, '\n');
         
@@ -39,7 +39,7 @@ public class identificador {
                             est = 1;
                         }
                         else {
-                            tokenNum = 1;
+                            tNumerico = 1;
                             tipo = "     IDENTIFICADOR     ";
                             est = 0;
                         }
@@ -51,7 +51,7 @@ public class identificador {
                             est = 2;
                         }
                         else {
-                            tokenNum = 2;
+                            tNumerico = 2;
                             tipo = "     NUMERO ENTERO    ";
                             est = 0;
                         }
@@ -63,13 +63,13 @@ public class identificador {
                         
                     case 999:   
                         estructura = String.valueOf(lineas[i].charAt(j));   //char a string
-                        tokenNum = 999; 
+                        tNumerico = 999; 
                         tipo = "     ERROR     ";
                         est = 0;
                         break;
                 }
                 if (est == 0) {
-                    listaTokens.add(new TokenXtoken(estructura, tokenNum, i+1, j+1, tipo));
+                    listaTokens.add(new TokenXtoken(estructura, tNumerico, i+1, j+1, tipo));
                     estructura = "";
                     tipo = "";
                 }
